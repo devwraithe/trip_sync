@@ -48,9 +48,16 @@ class TripCheckIn extends StatelessWidget {
               ),
             ],
           ),
-          Chip(
-            backgroundColor: AppColors.orange20,
-            label: Text(
+          Container(
+            decoration: BoxDecoration(
+              color: AppColors.orange20,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 8,
+            ),
+            child: Text(
               "Check in",
               style: textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w600,
