@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trip_sync/app/core/theme/app_text_theme.dart';
 
+import '../../core/theme/app_text_theme.dart';
 import '../widgets/trip.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -38,6 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.orange,
+        child: const Icon(Icons.close),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

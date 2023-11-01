@@ -8,7 +8,7 @@ class TripSync extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Trip Sync",
+      title: "TripSync",
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
       theme: AppTheme.lightTheme,
