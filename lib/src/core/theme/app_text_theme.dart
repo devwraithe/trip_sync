@@ -7,69 +7,45 @@ class AppTextTheme {
   static const textTheme = TextTheme(
     // Display TextStyles
     displayLarge: TextStyle(
-      fontSize: 56,
-      color: AppColors.white,
+      fontSize: 47.78,
       fontWeight: FontWeight.w700,
     ),
     displayMedium: TextStyle(
-      fontSize: 40,
-      color: AppColors.white,
+      fontSize: 39.81,
       fontWeight: FontWeight.w700,
     ),
     displaySmall: TextStyle(
-      fontSize: 36,
+      fontSize: 33.18,
       fontWeight: FontWeight.w700,
     ),
-
-    // Headline TextStyles
     headlineLarge: TextStyle(
-      fontSize: 30,
+      fontSize: 27.65,
       fontWeight: FontWeight.w600,
-      height: 1.3,
     ),
     headlineMedium: TextStyle(
-      fontSize: 20,
-      color: AppColors.white,
+      fontSize: 23.04,
       fontWeight: FontWeight.w700,
     ),
     headlineSmall: TextStyle(
-      fontSize: 18,
+      fontSize: 19.20,
       color: AppColors.white,
       fontWeight: FontWeight.w400,
     ),
-
-    // Title Text Styles
     titleLarge: TextStyle(
-      fontSize: 16,
+      fontSize: 16.00,
       fontWeight: FontWeight.w600,
     ),
     titleMedium: TextStyle(
-      fontSize: 14,
+      fontSize: 13.33,
       fontWeight: FontWeight.w600,
-      color: AppColors.grey,
     ),
-
-    // Body Text Styles
     bodyLarge: TextStyle(
-      fontSize: 16,
+      fontSize: 16.00,
       fontWeight: FontWeight.w400,
     ),
     bodyMedium: TextStyle(
-      fontSize: 14,
+      fontSize: 13.33,
       fontWeight: FontWeight.w400,
-      color: AppColors.grey,
-    ),
-
-    // Label Text Styles
-    labelLarge: TextStyle(
-      fontSize: 13,
-      color: AppColors.black,
-      fontWeight: FontWeight.w400,
-    ),
-    labelMedium: TextStyle(
-      fontSize: 12,
-      color: AppColors.black,
-      fontWeight: FontWeight.w700,
     ),
   );
 }

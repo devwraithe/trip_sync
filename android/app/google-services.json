@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "688863267823",
+    "project_id": "tripsync-42562",
+    "storage_bucket": "tripsync-42562.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688863267823:android:af0d80c29edbd8da39441a",
+        "android_client_info": {
+          "package_name": "com.example.trip_sync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPIGKkNTs5BlmfJb3BRR6zFGcEPezzRec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
