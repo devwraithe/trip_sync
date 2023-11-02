@@ -94,6 +94,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: textTheme.bodyLarge,
                   ),
                   const SizedBox(height: 26),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      Routes.resetPassword,
+                    ),
+                    child: Text(
+                      "Forgot password?",
+                      style: textTheme.titleLarge,
+                    ),
+                  ),
+                  const SizedBox(height: 26),
                   FilledButton(
                     onPressed: () => _submit(),
                     child: BlocConsumer<SignInCubit, SignInState>(

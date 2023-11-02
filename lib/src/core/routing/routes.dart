@@ -1,6 +1,4 @@
 class Routes {
-  // Base routes
-
   // Auth routes
   static String auth = "/auth";
   static String signUp = '$auth/sign_up';
