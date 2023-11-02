@@ -16,6 +16,7 @@ void init() {
   // Auth injectors
   signUpInjector();
   signInInjector();
+  resetPasswordInjector();
 
   // Repo injectors
   authInjector();

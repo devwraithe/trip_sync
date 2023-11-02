@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_sync/src/features/authentication/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:trip_sync/src/features/authentication/presentation/screens/register_screen.dart';
@@ -18,6 +19,7 @@ class TripSync extends StatelessWidget {
         // Authentication
         BlocProvider(create: (_) => sl<SignUpCubit>()),
         BlocProvider(create: (_) => sl<SignInCubit>()),
+        BlocProvider(create: (_) => sl<ResetPasswordCubit>()),
       ],
       child: MaterialApp(
         title: "TripSync",

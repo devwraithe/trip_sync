@@ -73,46 +73,46 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
-  // @override
-  // Future<void> resetPassword(String email) async {
-  //   try {
-  //     await _auth.sendPasswordResetEmail(
-  //       email: email,
-  //     );
-  //   } on FirebaseAuthException catch (e) {
-  //     debugPrint("ServerException: $e");
-  //     if (e.code == 'user-not-found') {
-  //       throw ServerException("No user found for this email");
-  //     } else if (e.code == 'invalid-email') {
-  //       throw ServerException("You provided an invalid email address");
-  //     }
-  //   } on SocketException catch (_) {
-  //     throw ConnectionException(Constants.socketError);
-  //   } on TimeoutException catch (_) {
-  //     throw ConnectionException(Constants.timeoutError);
-  //   } catch (e) {
-  //     throw ServerException(Constants.unknownError);
-  //   }
-  // }
-  //
-  // @override
-  // Future<void> logout() async {
-  //   try {
-  //     await _auth.signOut();
-  //   } on FirebaseAuthException catch (e) {
-  //     throw ServerException("No user found for this email");
-  //   } on SocketException catch (e) {
-  //     throw ConnectionException(Constants.socketError);
-  //   } on TimeoutException catch (_) {
-  //     throw ConnectionException(Constants.timeoutError);
-  //   } catch (e) {
-  //     throw ServerException(Constants.unknownError);
-  //   }
-  // }
-  //
-  // @override
-  // Future<bool> verifyAuth() async {
-  //   final User? user = _auth.currentUser;
-  //   return user != null;
-  // }
+  @override
+  Future<Either<Failure, void>> resetPassword(String email) async {
+    print("Email to reset: $email");
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      return const Right(null);
+    } on FirebaseAuthException catch (e) {
+      debugPrint("Error: ${e.code}");
+      if (e.code == 'invalid-email') {
+        return Left(Failure("You provided an invalid email address"));
+      } else {
+        return Left(Failure(Constants.unknownError));
+      }
+    } on ConnectionException catch (_) {
+      return Left(Failure(Constants.socketError));
+    } on TimeoutException catch (_) {
+      return Left(Failure(Constants.timeoutError));
+    } catch (e) {
+      return Left(Failure(Constants.unknownError));
+    }
+  }
+
+  @override
+  Future<void> logout() async {
+    try {
+      await _auth.signOut();
+    } on FirebaseAuthException catch (e) {
+      throw ServerException("No user found for this email");
+    } on ConnectionException catch (e) {
+      throw ConnectionException(Constants.socketError);
+    } on TimeoutException catch (_) {
+      throw ConnectionException(Constants.timeoutError);
+    } catch (e) {
+      throw ServerException(Constants.unknownError);
+    }
+  }
+
+  @override
+  Future<bool> verifyAuth() async {
+    final User? user = _auth.currentUser;
+    return user != null;
+  }
 }

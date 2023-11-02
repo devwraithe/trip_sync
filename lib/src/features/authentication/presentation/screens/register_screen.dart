@@ -99,10 +99,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: BlocConsumer<SignUpCubit, SignUpState>(
                       listener: (context, state) {
                         if (state is SignUpError) {
-                          debugPrint(state.message);
+                          UiHelpers.errorFlush(
+                            state.message,
+                            context,
+                          );
                         }
                         if (state is SignUpSuccess) {
-                          debugPrint(state.result?.displayName);
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            Routes.trips,
+                            (_) => false,
+                          );
                         }
                       },
                       builder: (context, state) {
