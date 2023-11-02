@@ -7,6 +7,11 @@ import '../theme/app_text_theme.dart';
 import 'constants.dart';
 
 class UiHelpers {
+  // Loaders
+  static loader() {
+    return const CircularProgressIndicator();
+  }
+
   static tripImageRadius(Widget child) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
