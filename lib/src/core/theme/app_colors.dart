@@ -13,4 +13,10 @@ class AppColors {
   // Orange variants
   static const Color orange20 = Color(0xFFfad9c5);
   static const Color orange10 = Color(0xFFec6e25);
+
+  // Green variants
+  static const Color green10 = Color(0xFF198754);
+
+  // Red variants
+  static const Color red10 = Color(0xFFd0312d);
 }

@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -72,5 +73,44 @@ class UiHelpers {
         size: 20,
       ),
     );
+  }
+
+  // Notifications, dialogs and snackbars
+  static successFlush(
+    String message,
+    BuildContext context,
+  ) async {
+    return Flushbar(
+      messageText: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: AppTextTheme.textTheme.bodyLarge?.copyWith(
+          color: AppColors.white,
+        ),
+      ),
+      duration: const Duration(seconds: 2),
+      backgroundColor: AppColors.green10,
+      flushbarPosition: FlushbarPosition.BOTTOM,
+      padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+    )..show(context);
+  }
+
+  static errorFlush(
+    String message,
+    BuildContext context,
+  ) async {
+    return Flushbar(
+      messageText: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: AppTextTheme.textTheme.bodyLarge?.copyWith(
+          color: AppColors.white,
+        ),
+      ),
+      duration: const Duration(seconds: 2),
+      backgroundColor: AppColors.red10,
+      flushbarPosition: FlushbarPosition.BOTTOM,
+      padding: const EdgeInsets.fromLTRB(20, 22, 20, 18),
+    )..show(context);
   }
 }

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_sync/src/core/routing/routes.dart';
 import 'package:trip_sync/src/core/theme/app_text_theme.dart';
 import 'package:trip_sync/src/core/utilities/helpers/form_validator.dart';
-import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
-import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_up_cubit/sign_up_state.dart';
+import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../../../../core/utilities/constants.dart';
 import '../../../../core/utilities/ui_helpers.dart';
+import '../cubits/sign_in_cubit/sign_in_state.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  final _key = GlobalKey<FormState>(debugLabel: 'register');
+class _LoginScreenState extends State<LoginScreen> {
+  final _key = GlobalKey<FormState>(debugLabel: 'login');
 
   final Map<String, dynamic> data = {
     "email": "",
@@ -37,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (formState.validate()) {
       formState.save();
-      BlocProvider.of<SignUpCubit>(context).signUp(data);
+      BlocProvider.of<SignInCubit>(context).signIn(data);
     }
   }
 
@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             SafeArea(
               child: Text(
-                "Create an account",
+                "Login",
                 style: textTheme.headlineLarge,
               ),
             ),
@@ -96,20 +96,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const SizedBox(height: 26),
                   FilledButton(
                     onPressed: () => _submit(),
-                    child: BlocConsumer<SignUpCubit, SignUpState>(
+                    child: BlocConsumer<SignInCubit, SignInState>(
                       listener: (context, state) {
-                        if (state is SignUpError) {
-                          debugPrint(state.message);
+                        if (state is SignInError) {
+                          UiHelpers.errorFlush(
+                            state.message,
+                            context,
+                          );
                         }
-                        if (state is SignUpSuccess) {
-                          debugPrint(state.result?.displayName);
+                        if (state is SignInSuccess) {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            Routes.trips,
+                            (_) => false,
+                          );
                         }
                       },
                       builder: (context, state) {
-                        if (state is SignUpLoading) {
+                        if (state is SignInLoading) {
                           return const CircularProgressIndicator();
                         } else {
-                          return const Text("Sign up");
+                          return const Text("Sign in");
                         }
                       },
                     ),
@@ -120,16 +127,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account? ",
+                        "Don't have an account? ",
                         style: textTheme.bodyLarge,
                       ),
                       GestureDetector(
                         onTap: () => Navigator.pushNamed(
                           context,
-                          Routes.signIn,
+                          Routes.signUp,
                         ),
                         child: Text(
-                          "Login",
+                          "Create one",
                           style: textTheme.titleLarge,
                         ),
                       ),
