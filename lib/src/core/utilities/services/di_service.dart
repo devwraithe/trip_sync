@@ -13,8 +13,10 @@ regSingleton<T extends Object>(T Function() factFunc) {
 }
 
 void init() {
-  // Authentication
+  // Auth injectors
   signUpInjector();
+  signInInjector();
 
+  // Repo injectors
   authInjector();
 }
