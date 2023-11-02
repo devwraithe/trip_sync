@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trip_sync/app/core/theme/app_text_theme.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../theme/app_colors.dart';
+import '../theme/app_text_theme.dart';
 import 'constants.dart';
 
 class UiHelpers {
@@ -59,6 +60,16 @@ class UiHelpers {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  static switchPassword(void Function()? onTap, bool obscurePassword) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Icon(
+        obscurePassword == true ? Iconsax.eye_slash : Iconsax.eye,
+        size: 20,
       ),
     );
   }
