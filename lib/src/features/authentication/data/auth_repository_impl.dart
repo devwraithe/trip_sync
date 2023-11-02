@@ -113,6 +113,13 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<bool> verifyAuth() async {
     final User? user = _auth.currentUser;
-    return user != null;
+    print("Current user: $user");
+    if (user == null) {
+      print("User is null");
+      return true;
+    } else {
+      print("User is not null");
+      return false;
+    }
   }
 }
