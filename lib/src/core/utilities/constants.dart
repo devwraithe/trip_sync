@@ -9,6 +9,7 @@ class Constants {
   static String socketError = "No Internet Connection";
   static String unknownError = "Something went wrong";
   static String timeoutError = "Timeout";
+  static String noTrips = "No trips added yet!";
 
   static double hrPadding = 20;
   static double vrPadding = 34;

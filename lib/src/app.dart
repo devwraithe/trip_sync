@@ -6,6 +6,7 @@ import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_u
 import 'package:trip_sync/src/features/authentication/presentation/cubits/verify_auth_cubit/verify_auth_cubit.dart';
 import 'package:trip_sync/src/features/authentication/presentation/screens/login_screen.dart';
 import 'package:trip_sync/src/features/trips/presentation/cubits/new_trip_cubit/new_trip_cubit.dart';
+import 'package:trip_sync/src/features/trips/presentation/cubits/trips_cubit/trips_cubit.dart';
 
 import 'core/routing/route_screens.dart';
 import 'core/theme/app_theme.dart';
@@ -29,6 +30,7 @@ class TripSync extends StatelessWidget {
 
         // Trips
         BlocProvider(create: (_) => sl<NewTripCubit>()),
+        BlocProvider(create: (_) => sl<TripsCubit>()),
       ],
       child: MaterialApp(
         title: "TripSync",
