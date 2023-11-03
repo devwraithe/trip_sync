@@ -22,6 +22,7 @@ void init() {
 
   // Trips injectors
   newTripInjector();
+  allTripsInjector();
 
   // Repo injectors
   authInjector();
