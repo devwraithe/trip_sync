@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:trip_sync/src/core/utilities/injectors/trips_injector.dart';
 
 import '../injectors/auth_injector.dart';
 
@@ -19,6 +20,10 @@ void init() {
   resetPasswordInjector();
   verifyAuthInjector();
 
+  // Trips injectors
+  newTripInjector();
+
   // Repo injectors
   authInjector();
+  tripsInjector();
 }

@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 class Constants {
@@ -20,6 +23,12 @@ class Constants {
     horizontal: hrPadding,
     vertical: vrPadding,
   );
+
+  // Firebase
+  static FirebaseFirestore firestore = FirebaseFirestore.instance;
+  static FirebaseStorage firebaseStorage = FirebaseStorage.instance;
+  static FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  static User? user = firebaseAuth.currentUser;
 
   // Other
   static AutovalidateMode validateMode = AutovalidateMode.onUserInteraction;

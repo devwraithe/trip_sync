@@ -5,13 +5,14 @@ import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_i
 import 'package:trip_sync/src/features/authentication/presentation/cubits/sign_up_cubit/sign_up_cubit.dart';
 import 'package:trip_sync/src/features/authentication/presentation/cubits/verify_auth_cubit/verify_auth_cubit.dart';
 import 'package:trip_sync/src/features/authentication/presentation/screens/login_screen.dart';
+import 'package:trip_sync/src/features/trips/presentation/cubits/new_trip_cubit/new_trip_cubit.dart';
 
 import 'core/routing/route_screens.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utilities/services/di_service.dart';
 import 'core/utilities/ui_helpers.dart';
 import 'features/authentication/presentation/cubits/verify_auth_cubit/verify_auth_state.dart';
-import 'features/trips/screens/trips_screen.dart';
+import 'features/trips/presentation/screens/trips_screen.dart';
 
 class TripSync extends StatelessWidget {
   const TripSync({super.key});
@@ -25,6 +26,9 @@ class TripSync extends StatelessWidget {
         BlocProvider(create: (_) => sl<SignInCubit>()),
         BlocProvider(create: (_) => sl<ResetPasswordCubit>()),
         BlocProvider(create: (_) => sl<VerifyAuthCubit>()),
+
+        // Trips
+        BlocProvider(create: (_) => sl<NewTripCubit>()),
       ],
       child: MaterialApp(
         title: "TripSync",
