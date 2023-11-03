@@ -23,4 +23,11 @@ class FormValidator {
     }
     return null;
   }
+
+  static String? others(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Field is required';
+    }
+    return null;
+  }
 }

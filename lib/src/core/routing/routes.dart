@@ -7,4 +7,5 @@ class Routes {
 
   // Trips routes
   static String trips = "/trips";
+  static String newTrip = "$trips/new-trip";
 }
